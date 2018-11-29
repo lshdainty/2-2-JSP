@@ -5,16 +5,26 @@
 <script src="/CafeProject/index.js"></script>
 
 <c:if test="${empty id}">
-	<jsp:include page="mngr/logon/mLoginForm.jsp"/>
+	<jsp:include page="html/mlogin/mLoginForm.jsp"/>
 </c:if>
 <c:if test="${not empty id}">
 	<div>${id}님 반갑습니다.
 		<button id="logout">로그아웃</button>
 	</div>
-	<div>주문</div>
-	<div>직원</div>
-	<div>매출</div>
-	<div>메뉴</div>
-	<div>뭐있냐</div>
+	<div>
+		<button id="order">주문</button>
+	</div>
+	<div>
+		<button id="customer">고객</button>
+	</div>
+	<div>
+		<button id="menu">메뉴</button>
+	</div>
+	<div>
+		<button id="sales">매출</button>
+	</div>
+	<div>
+		<button id="employee">직원</button>
+	</div>
 	<jsp:include page="${cont}"/>
 </c:if>

@@ -1,4 +1,4 @@
-package bookshop.bean;
+package mlogin.bean;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

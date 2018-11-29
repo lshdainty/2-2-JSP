@@ -1,9 +1,9 @@
-package command;
+package mlogin.command;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bookshop.bean.MngrDBBean;
+import mlogin.bean.MngrDBBean;
 
 public class ManagerLoginProAction implements CommandAction{
 	@Override
@@ -22,6 +22,6 @@ public class ManagerLoginProAction implements CommandAction{
 		request.setAttribute("check", new Integer(check));
 		request.setAttribute("id", id);
 		
-		return "/mngr/logon/mLoginPro.jsp";
+		return "/html/mlogin/mLoginPro.jsp";
 	}
 }

@@ -1,4 +1,4 @@
-package bookshop.controller;
+package cafe.controller;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import command.CommandAction;
+import mlogin.command.CommandAction;
 
 /**
  * Servlet implementation class Controller
@@ -117,7 +117,6 @@ public class Controller extends HttpServlet {
 			System.out.println(com);
 			if(com==null) {
 				view=" ";
-				System.out.println("com = null");
 			}
 			else {
 				view = com.requestPro(request, response);

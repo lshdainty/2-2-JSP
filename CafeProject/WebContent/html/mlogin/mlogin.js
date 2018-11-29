@@ -10,7 +10,7 @@ $(document).ready(function(){
 			url:"/CafeProject/mg/managerLoginPro.do",
 			data:query,
 			success:function(data){
-				window.location.href="/CafeProject/mg/managerMain.do";
+				window.location.href="/CafeProject/mg/orderMain.do";
 			}
 		});	//ajax
 	});	//login
