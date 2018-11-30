@@ -17,10 +17,12 @@ public class ManagerLoginProAction implements CommandAction{
 		//db와 연동해서 사용자의 인증을 처리
 		MngrDBBean dbPro = MngrDBBean.getInstance();
 		int check = dbPro.userCheck(id, passwd);
+		int authority = dbPro.authorityCheck(id);
 		
 		//해당 뷰로 보낼 내용을 request 속성에 지정
 		request.setAttribute("check", new Integer(check));
 		request.setAttribute("id", id);
+		request.setAttribute("authority", authority);
 		
 		return "/html/mlogin/mLoginPro.jsp";
 	}

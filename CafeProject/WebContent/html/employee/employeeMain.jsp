@@ -6,7 +6,7 @@
 	<head>
 		<title>직원 페이지입니다.</title>
 		<script src="/CafeProject/js/jquery-3.3.1.min.js"></script>
-		<script src="/CafeProject/html/employee/employee.js"></script>
+		<script src="/CafeProject/js/employee.js"></script>
 	</head>
 	<body>
 		<div>직원 페이지입니다.</div>

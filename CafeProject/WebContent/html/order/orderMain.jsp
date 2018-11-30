@@ -6,7 +6,7 @@
 	<head>
 		<title>주문 페이지입니다.</title>
 		<script src="/CafeProject/js/jquery-3.3.1.min.js"></script>
-		<script src="/CafeProject/html/order/order.js"></script>
+		<script src="/CafeProject/js/order.js"></script>
 	</head>
 	<body>
 		<div>주문 페이지입니다.</div>

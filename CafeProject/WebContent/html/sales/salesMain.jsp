@@ -6,7 +6,7 @@
 	<head>
 		<title>매출 페이지입니다.</title>
 		<script src="/CafeProject/js/jquery-3.3.1.min.js"></script>
-		<script src="/CafeProject/html/sales/sales.js"></script>
+		<script src="/CafeProject/js/sales.js"></script>
 	</head>
 	<body>
 		<div>매출 페이지입니다.</div>
