@@ -1,6 +1,11 @@
+#indexId{
+	float:right;
+	width:220px;
+	height:25px;
+}
 #left_side {
 	width: 200px;
-	height: 900px; 
+	height: 950px; 
 /* 	background-color: yellow; */
 	border:solid;
 	float: left;
@@ -8,9 +13,39 @@
 }
 #main{
 	width: 1650px;
-	height:900px;
+	height:925px;
 /* 	background-color:blue; */
 	border:solid;
 	float:left;
-	
+	margin-left: 10px;	
+}
+#btnOrder{
+	width: 200px;
+	height:190px;
+	float: left;
+	font-size:50px;
+}
+#btnCustomer{
+	width: 200px;
+	height:190px;
+	float: left;
+	font-size:50px;
+}
+#btnMenu{
+	width: 200px;
+	height:190px;
+	float: left;
+	font-size:50px;
+}
+#btnSales{
+	width: 200px;
+	height:190px;
+	float: left;
+	font-size:50px;
+}
+#btnEmployee{
+	width: 200px;
+	height:190px;
+	float: left;
+	font-size:50px;
 }

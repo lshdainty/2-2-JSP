@@ -19,7 +19,7 @@
 		<c:if test="${not empty id}">
 			<%-- session에 authority값이 1이면 관리자이다. --%>
 			<c:if test="${authority == 1}">
-				<div>
+				<div id="indexId">
 					${id}님 반갑습니다.
 					<button id="logout">로그아웃</button>
 				</div>
