@@ -1,0 +1,16 @@
+#left_side {
+	width: 200px;
+	height: 900px; 
+/* 	background-color: yellow; */
+	border:solid;
+	float: left;
+	margin-right: 10px;
+}
+#main{
+	width: 1650px;
+	height:900px;
+/* 	background-color:blue; */
+	border:solid;
+	float:left;
+	
+}

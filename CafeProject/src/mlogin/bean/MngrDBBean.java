@@ -22,7 +22,7 @@ public class MngrDBBean {
 	private Connection getConnection() throws Exception{
 		Context initCtx = new InitialContext();
 		Context envCtx = (Context)initCtx.lookup("java:comp/env");
-		DataSource ds = (DataSource)envCtx.lookup("oracle");
+		DataSource ds = (DataSource)envCtx.lookup("jdbc/cafe");
 		return ds.getConnection();
 	}
 	
@@ -35,22 +35,25 @@ public class MngrDBBean {
 		try {
 			conn = getConnection();
 			
-			String sql = "select managerpasswd from manager where managerid=?";
+			String sql = "select managerPasswd from manager where managerId=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				String dbpasswd = rs.getString("managerpasswd");
+				String dbpasswd = rs.getString("managerPasswd");
 				if(dbpasswd.equals(passwd)) {
 					x=1;	//로그인 성공
+					System.out.println(x);
 				}
 				else {
 					x=0;	//비번틀림
+					System.out.println(x);
 				}
 			}
 			else {
 				x=-1;	//아이디 없음
+				System.out.println(x);
 			}
 		}catch(Exception e) {
 			System.out.println("오류가 있습니다.");

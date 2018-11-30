@@ -9,23 +9,23 @@ $(document).ready(function(){
 		});	//ajax
 	});	//logout
 	
-	$("#order").click(function(){	//주문 버튼을 눌렀을때
+	$("#btnOrder").click(function(){	//주문 버튼을 눌렀을때
 		window.location.href="/CafeProject/mg/orderMain.do";
 	});	//order
 	
-	$("#customer").click(function(){	//고객 버튼을 눌렀을때
+	$("#btnCustomer").click(function(){	//고객 버튼을 눌렀을때
 		window.location.href="/CafeProject/mg/customerMain.do";
 	});	//customer
 	
-	$("#menu").click(function(){	//메뉴 버튼을 눌렀을때
+	$("#btnMenu").click(function(){	//메뉴 버튼을 눌렀을때
 		window.location.href="/CafeProject/mg/menuMain.do";
 	});	//menu
 	
-	$("#sales").click(function(){	//매출 버튼을 눌렀을때
+	$("#btnSales").click(function(){	//매출 버튼을 눌렀을때
 		window.location.href="/CafeProject/mg/salesMain.do";
 	});	//sales
 	
-	$("#employee").click(function(){	//직원 버튼을 눌렀을때
+	$("#btnEmployee").click(function(){	//직원 버튼을 눌렀을때
 		window.location.href="/CafeProject/mg/employeeMain.do";
 	});	//employee
 });	//document
