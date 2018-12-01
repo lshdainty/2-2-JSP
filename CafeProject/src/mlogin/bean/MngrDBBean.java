@@ -3,10 +3,14 @@ package mlogin.bean;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 public class MngrDBBean {
 	//싱글톤 
@@ -94,5 +98,58 @@ public class MngrDBBean {
 			if(conn!=null)try {conn.close();}catch(Exception e) {}
 		}
 		return num;
+	}
+	
+	//직원 추가
+	public void insertManager(String name, String passwd) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			conn = getConnection();
+			
+			String sql = "insert into manager(managerName,managerPasswd) values(?,?)";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, name);
+			pstmt.setString(2, passwd);
+			pstmt.executeUpdate();
+		}catch(Exception e) {
+			System.out.println("오류가 있습니다.");
+		}finally {
+			if(rs!=null)try {rs.close();}catch(Exception e) {}
+			if(pstmt!=null)try {pstmt.close();}catch(Exception e) {}
+			if(conn!=null)try {conn.close();}catch(Exception e) {}
+		}
+	}
+	
+	//전체 직원 조회
+	public JSONArray allUser(){
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		JSONObject jsonObject;
+		JSONArray jsonArray = new JSONArray();
+		
+		try {
+			conn = getConnection();
+			
+			String sql = "select * from manager";
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				jsonObject = new JSONObject();
+				jsonObject.put("managerId",rs.getInt("managerId"));
+				jsonObject.put("managerName",rs.getString("managerName"));
+				jsonObject.put("managerPasswd",rs.getString("managerPasswd"));
+				jsonArray.add(jsonObject);
+			}
+		}catch(Exception e) {
+			System.out.println("오류가 있습니다.");
+		}finally {
+			if(rs!=null)try {rs.close();}catch(Exception e) {}
+			if(pstmt!=null)try {pstmt.close();}catch(Exception e) {}
+			if(conn!=null)try {conn.close();}catch(Exception e) {}
+		}
+		return jsonArray;
 	}
 }

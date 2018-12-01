@@ -1,48 +1,24 @@
 #leftArea{
 	float:left;
-	width: 820px;
-	height: 925px;
+	width: 819px;
+	height: 920px;
 	border:solid;
 }
 #rightUpArea{
-	width: 810px;
-	height: 462px; 
+	width: 819px;
+	height: 457px; 
 /* 	background-color: yellow; */
 	border:solid;
 	float: right;
 }
 #rightDownArea{
-	width: 810px;
-	height:462px;
+	width: 819px;
+	height:457px;
 /* 	background-color:blue; */
 	border:solid;
 	float:right;
 }
 #btnOrder{
-	width: 200px;
-	height:190px;
-	float: left;
-	font-size:50px;
-}
-#btnCustomer{
-	width: 200px;
-	height:190px;
-	float: left;
-	font-size:50px;
-}
-#btnMenu{
-	width: 200px;
-	height:190px;
-	float: left;
-	font-size:50px;
-}
-#btnSales{
-	width: 200px;
-	height:190px;
-	float: left;
-	font-size:50px;
-}
-#btnEmployee{
 	width: 200px;
 	height:190px;
 	float: left;

@@ -116,7 +116,7 @@ public class Controller extends HttpServlet {
 			com = (CommandAction)commandMap.get(command);
 			System.out.println(com);
 			if(com==null) {
-				view=" ";
+				view="";
 			}
 			else {
 				view = com.requestPro(request, response);

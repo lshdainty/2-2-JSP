@@ -10,19 +10,25 @@
 		<link rel="stylesheet" href="/CafeProject/css/employee.css">
 	</head>
 	<body>
-		<div id="leftArea">직원 페이지입니다.
+		<div id="leftArea">
+			<c:forEach var ="e" items = "${sessionScope.list}">
+				<tr>
+					<td>${e.managerId}</td>
+					<td>${e.managerName}</td>
+				</tr>
+			</c:forEach>
 		</div>
 		<div id="rightUpArea">
 			<label for="name">이름</label>
 			<input id="name" type="text">
 			<br/>
-			<label for="tel">휴대폰 번호</label>
-			<input id="tel" type="text">
+			<label for="passwd">비밀번호</label>
+			<input id="passwd" type="password">
 		</div>
 		<div id="rightDownArea">
 			<button id="select">조회</button>
 			<button id="add">추가</button>
-			<button id="modify">수정</button>
+			<button id="delete">삭제</button>
 		</div>
 	</body>
 </html>

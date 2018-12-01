@@ -26,6 +26,6 @@ $(document).ready(function(){
 	});	//sales
 	
 	$("#btnEmployee").click(function(){	//직원 버튼을 눌렀을때
-		window.location.href="/CafeProject/mg/employeeMain.do";
+		window.location.href="/CafeProject/mg/employeeSelect.do";
 	});	//employee
 });	//document
