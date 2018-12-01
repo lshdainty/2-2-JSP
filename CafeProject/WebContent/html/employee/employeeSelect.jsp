@@ -3,6 +3,3 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <c:set var="list" value="${list}" scope="session"/>
-<script>
-	window.location.href="/CafeProject/mg/employeeMain.do";
-</script>

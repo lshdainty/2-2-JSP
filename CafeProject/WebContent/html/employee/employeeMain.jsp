@@ -12,13 +12,14 @@
 	<body>
 		<div id="leftArea">
 			<c:forEach var ="e" items = "${sessionScope.list}">
-				<tr>
-					<td>${e.managerId}</td>
-					<td>${e.managerName}</td>
-				</tr>
+					직원 코드 : ${e.managerId} , 직원 이름 : ${e.managerName}
+					<br/>
 			</c:forEach>
 		</div>
 		<div id="rightUpArea">
+			<label for="id">직원코드</label>
+			<input id="id" type="text">
+			<br/>
 			<label for="name">이름</label>
 			<input id="name" type="text">
 			<br/>
