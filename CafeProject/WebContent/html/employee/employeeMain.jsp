@@ -18,7 +18,7 @@
 		</div>
 		<div id="employee_right">
 			<label for="id">직원코드</label>
-			<input id="id" type="text">
+			<input id="id" type="text" maxlength="3">
 			<br/>
 			<label for="name">이름</label>
 			<input id="name" type="text">

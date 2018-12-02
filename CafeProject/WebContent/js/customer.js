@@ -34,6 +34,7 @@ $(document).ready(function(){
 		var query = {
 				name:$("#name").val(),
 				tel:$("#tel").val(),
+				newTel:$("#newTel").val()
 		};	//query
 		$.ajax({
 			type:"post",

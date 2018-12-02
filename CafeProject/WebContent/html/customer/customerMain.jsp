@@ -21,7 +21,10 @@
 			<input id="name" type="text">
 			<br/>
 			<label for="tel">휴대폰 번호</label>
-			<input id="tel" type="text">
+			<input id="tel" type="text" maxlength="11">
+			<br/>
+			<label for="newTel">변경할 휴대폰 번호</label>
+			<input id="newTel" type="text" maxlength="11">
 			<br/>
 			
 			<button id="btnCustomerCk">조회</button>

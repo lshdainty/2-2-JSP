@@ -14,10 +14,11 @@ public class CustomerUpdateAction implements CommandAction{
 		//넘어온 요청의 데이터를 얻어냄
 		String name = request.getParameter("name");
 		String tel = request.getParameter("tel");
+		String newTel = request.getParameter("newTel");
 		
 		//db와 연동해서 사용자의 인증을 처리
 		CustomerDBBean dbPro = CustomerDBBean.getInstance();
-		dbPro.updateCustomer(tel,name);
+		dbPro.updateCustomer(tel,newTel,name);
 		request.setAttribute("clist",dbPro.allUser());
 		
 		return "/html/customer/customerSelect.jsp";

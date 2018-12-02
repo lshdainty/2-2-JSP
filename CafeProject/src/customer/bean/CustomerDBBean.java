@@ -26,7 +26,7 @@ public class CustomerDBBean {
 	private Connection getConnection() throws Exception{
 		Context initCtx = new InitialContext();
 		Context envCtx = (Context)initCtx.lookup("java:comp/env");
-		DataSource ds = (DataSource)envCtx.lookup("oracle");
+		DataSource ds = (DataSource)envCtx.lookup("jdbc/cafe");
 		return ds.getConnection();
 	}
 	
@@ -70,14 +70,6 @@ public class CustomerDBBean {
 		try {
 			conn = getConnection();
 			
-			/*maria db용
-			String sql = "insert into manager(managerName,managerPasswd) values(?,?)";
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, name);
-			pstmt.setString(2, passwd);
-			pstmt.executeUpdate();
-			*/
-			
 			String sql = "insert into customer values(?,?,0)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, tel);
@@ -93,25 +85,18 @@ public class CustomerDBBean {
 	}
 	
 	//고객 수정
-	public void updateCustomer(String tel, String name) {
+	public void updateCustomer(String tel,String newTel,String name) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
 			conn = getConnection();
 				
-			/*maria db용
-			String sql = "insert into manager(managerName,managerPasswd) values(?,?)";
+			String sql = "update customer set tel=?,customerName=? where tel=?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, name);
-			pstmt.setString(2, passwd);
-			pstmt.executeUpdate();
-			*/
-				
-			String sql = "";
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, tel);
+			pstmt.setString(1, newTel);
 			pstmt.setString(2, name);
+			pstmt.setString(3, tel);
 			pstmt.executeUpdate();
 		}catch(Exception e) {
 			System.out.println("오류가 있습니다.");

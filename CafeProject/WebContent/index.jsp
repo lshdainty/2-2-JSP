@@ -46,7 +46,7 @@
 			</c:if>
 			<%-- session에 authority값이 2이면 직원이다. --%>
 			<c:if test="${authority == 2}">
-				<div>
+				<div id="indexId">
 					${id}님 반갑습니다.
 					<button id="logout">로그아웃</button>
 				</div>
