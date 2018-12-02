@@ -11,10 +11,20 @@
 	</head>
 	<body>
 		<div id="customer_left">
-			<c:forEach var ="c" items = "${sessionScope.clist}">
-					고객 이름 : ${c.customerName} , 휴대폰 번호 : ${c.tel} , 포인트 : ${c.point}
-					<br/>
-			</c:forEach>
+			<table id="list">
+				<tr>
+					<th>고객 이름</th>
+					<th>휴대폰 번호</th>
+					<th>포인트</th>
+				</tr>
+				<c:forEach var ="c" items = "${sessionScope.clist}">
+				<tr>
+					<td>${c.customerName}</td>
+					<td>${c.tel}</td>
+					<td>${c.point}</td>
+				</tr>
+				</c:forEach>
+			</table>
 		</div>
 		<div id="customer_right">
 			<label for="name">이름</label>

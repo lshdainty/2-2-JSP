@@ -11,17 +11,27 @@
 	</head>
 	<body>
 		<div id="employee_left">
-			<c:forEach var ="e" items = "${sessionScope.elist}">
-					직원 코드 : ${e.managerId} , 직원 이름 : ${e.managerName}
-					<br/>
-			</c:forEach>
+			<table id="list">
+				<tr>
+					<th><input id="allChoose" type="checkbox" name="allChoose"></th>
+					<th>직원 코드</th>
+					<th>직원 이름</th>
+				</tr>
+				<c:forEach var ="e" items ="${sessionScope.elist}">
+				<tr>
+					<td><input class="choose" type="checkbox" name="choose" value="${e.managerId},${e.managerName}"></td>
+					<td>${e.managerId}</td>
+					<td>${e.managerName}</td>
+				</tr>
+				</c:forEach>
+			</table>
 		</div>
 		<div id="employee_right">
 			<label for="id">직원코드</label>
-			<input id="id" type="text" maxlength="3">
+			<input id="id" type="text" value="" maxlength="3">
 			<br/>
 			<label for="name">이름</label>
-			<input id="name" type="text">
+			<input id="name" type="text" value="">
 			<br/>
 			<label for="passwd">비밀번호</label>
 			<input id="passwd" type="password">

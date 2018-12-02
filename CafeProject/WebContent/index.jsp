@@ -24,21 +24,11 @@
 					<button id="logout">로그아웃</button>
 				</div>
 				<div id="left_side">
-					<div id="order">
-						<button id="btnOrder">주문</button>
-					</div>
-					<div id="customer">
-					<button id="btnCustomer">고객</button>
-					</div>
-					<div id="menu">
-						<button id="btnMenu">메뉴</button>
-					</div>
-					<div id="sales">
-					<button id="btnSales">매출</button>
-					</div>
-					<div id="employee">
-						<button id="btnEmployee">직원</button>
-					</div>
+					<button id="btnOrder" class="button">주문</button>
+					<button id="btnCustomer" class="button">고객</button>
+					<button id="btnMenu" class="button">메뉴</button>
+					<button id="btnSales" class="button">매출</button>
+					<button id="btnEmployee" class="button">직원</button>
 				</div>
 				<div id="main">
 					<jsp:include page="${cont}"/>

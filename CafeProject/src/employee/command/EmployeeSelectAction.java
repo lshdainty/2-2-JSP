@@ -18,7 +18,6 @@ public class EmployeeSelectAction implements CommandAction{
 		
 		//해당 뷰로 보낼 내용을 request 속성에 지정
 		request.setAttribute("elist",dbPro.selectUser(name));
-		
 		return "/html/employee/employeeSelect.jsp";
 	}
 }
