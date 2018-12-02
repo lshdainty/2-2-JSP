@@ -18,7 +18,7 @@ public class EmployeeAddAction implements CommandAction{
 		//db와 연동해서 사용자의 인증을 처리
 		EmployeeDBBean dbPro = EmployeeDBBean.getInstance();
 		dbPro.insertManager(name, passwd);
-		request.setAttribute("list",dbPro.allUser());
+		request.setAttribute("elist",dbPro.allUser());
 		
 		return "/html/employee/employeeSelect.jsp";
 	}

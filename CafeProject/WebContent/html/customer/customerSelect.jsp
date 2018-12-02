@@ -2,4 +2,4 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<c:set var="elist" value="${elist}" scope="session"/>
+<c:set var="clist" value="${clist}" scope="session"/>

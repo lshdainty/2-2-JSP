@@ -26,7 +26,7 @@ public class MngrDBBean {
 	private Connection getConnection() throws Exception{
 		Context initCtx = new InitialContext();
 		Context envCtx = (Context)initCtx.lookup("java:comp/env");
-		DataSource ds = (DataSource)envCtx.lookup("jdbc/cafe");
+		DataSource ds = (DataSource)envCtx.lookup("oracle");
 		return ds.getConnection();
 	}
 	

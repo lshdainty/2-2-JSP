@@ -14,7 +14,13 @@ $(document).ready(function(){
 	});	//order
 	
 	$("#btnCustomer").click(function(){	//고객 버튼을 눌렀을때
-		window.location.href="/CafeProject/mg/customerMain.do";
+		$.ajax({
+			type:"post",
+			url:"/CafeProject/mg/customerPro.do",
+			success:function(data){
+				window.location.href="/CafeProject/mg/customerMain.do";
+			}
+		});	//ajax
 	});	//customer
 	
 	$("#btnMenu").click(function(){	//메뉴 버튼을 눌렀을때

@@ -11,17 +11,23 @@
 	</head>
 	<body>
 		<div id="customer_left">
-			고객목록<br/>
-			고객목록 테이블<br/>
-			1 2 3 4 5<br/>
+			<c:forEach var ="c" items = "${sessionScope.clist}">
+					고객 이름 : ${c.customerName} , 휴대폰 번호 : ${c.tel} , 포인트 : ${c.point}
+					<br/>
+			</c:forEach>
 		</div>
 		<div id="customer_right">
-			이름 : <input type="text"/><br/>
-			휴대폰 번호 : <input type="text"/><br/>
+			<label for="name">이름</label>
+			<input id="name" type="text">
+			<br/>
+			<label for="tel">휴대폰 번호</label>
+			<input id="tel" type="text">
+			<br/>
 			
 			<button id="btnCustomerCk">조회</button>
 			<button id="btnCustomerIs">추가</button>
 			<button id="btnCustomerUd">수정</button>
+			<button id="btnCustomerDl">삭제</button>
 		</div>
 	</body>
 </html>

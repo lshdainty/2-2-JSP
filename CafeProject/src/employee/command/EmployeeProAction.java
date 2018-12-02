@@ -15,7 +15,7 @@ public class EmployeeProAction implements CommandAction{
 		EmployeeDBBean dbPro = EmployeeDBBean.getInstance();
 		
 		//해당 뷰로 보낼 내용을 request 속성에 지정
-		request.setAttribute("list",dbPro.allUser());
+		request.setAttribute("elist",dbPro.allUser());
 		
 		return "/html/employee/employeeSelect.jsp";
 	}

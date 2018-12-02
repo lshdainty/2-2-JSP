@@ -11,7 +11,7 @@
 	</head>
 	<body>
 		<div id="employee_left">
-			<c:forEach var ="e" items = "${sessionScope.list}">
+			<c:forEach var ="e" items = "${sessionScope.elist}">
 					직원 코드 : ${e.managerId} , 직원 이름 : ${e.managerName}
 					<br/>
 			</c:forEach>

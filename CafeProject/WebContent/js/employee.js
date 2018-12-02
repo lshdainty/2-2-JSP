@@ -8,6 +8,7 @@ $(document).ready(function(){
 			url:"/CafeProject/mg/employeeSelect.do",
 			data:query,
 			success:function(data){
+				alert("조회하였습니다.");
 				window.location.href="/CafeProject/mg/employeeMain.do"
 			}
 		});	//ajax
@@ -23,6 +24,7 @@ $(document).ready(function(){
 			url:"/CafeProject/mg/employeeAdd.do",
 			data:query,
 			success:function(data){
+				alert("추가하였습니다.");
 				window.location.href="/CafeProject/mg/employeeMain.do"
 			}
 		});	//ajax
@@ -37,6 +39,7 @@ $(document).ready(function(){
 			url:"/CafeProject/mg/employeeDelete.do",
 			data:query,
 			success:function(data){
+				alert("삭제하였습니다.");
 				window.location.href="/CafeProject/mg/employeeMain.do"
 			}
 		});	//ajax
