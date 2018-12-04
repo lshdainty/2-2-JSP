@@ -12,13 +12,13 @@ public class CustomerUpdateAction implements CommandAction{
 		request.setCharacterEncoding("utf-8");	//인코딩
 		
 		//넘어온 요청의 데이터를 얻어냄
-		String name = request.getParameter("name");
-		String tel = request.getParameter("tel");
-		String newTel = request.getParameter("newTel");
+		String customer_tel = request.getParameter("customer_tel");
+		String customer_name = request.getParameter("customer_name");
+		String customer_newTel = request.getParameter("customer_newTel");
 		
 		//db와 연동해서 사용자의 인증을 처리
 		CustomerDBBean dbPro = CustomerDBBean.getInstance();
-		dbPro.updateCustomer(tel,newTel,name);
+		dbPro.updateCustomer(customer_tel,customer_newTel,customer_name);
 		request.setAttribute("clist",dbPro.allUser());
 		
 		return "/html/customer/customerSelect.jsp";

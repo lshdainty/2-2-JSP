@@ -12,6 +12,22 @@
 	float:left;
 }
 
+#customer_right_top{
+	height : 460px;
+	position: relative;
+}
+
+#customer_right_inner{
+	position:absolute;
+	left:250px;
+ 	bottom: 20px;
+}
+
+#customer_right_bottom{
+	height : 460px;
+	text-align : center;
+}
+
 body{
 	font-size:15px;
 }
@@ -31,4 +47,8 @@ body{
 #list td {
 	border : 1px solid;
 	padding: 20px;
+}
+
+.btn{
+	font-size : 30px;
 }

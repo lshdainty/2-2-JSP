@@ -32,31 +32,19 @@
 							<col width="100px;" />
 						</colgroup>
 						<tr>
-							<th><input type="checkbox" /></th>
+							<th><input id="allChoose" type="checkbox"/></th>
 							<th>품목</th>
 							<th>수량</th>
 							<th>판매 금액</th>
 						</tr>
 						<tr>
-							<td><input type="checkbox" /></td>
+							<td><input class="choose" name="choose" type="checkbox"/></td>
 							<td>아메리카노</td>
 							<td>2</td>
 							<td>3000</td>
 						</tr>
 						<tr>
-							<td><input type="checkbox" /></td>
-							<td>아메리카노</td>
-							<td>2</td>
-							<td>3000</td>
-						</tr>
-						<tr>
-							<td><input type="checkbox" /></td>
-							<td>아메리카노</td>
-							<td>2</td>
-							<td>3000</td>
-						</tr>
-						<tr>
-							<td><input type="checkbox" /></td>
+							<td><input class="choose" name="choose" type="checkbox"/></td>
 							<td>아메리카노</td>
 							<td>2</td>
 							<td>3000</td>

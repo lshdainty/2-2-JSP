@@ -2,8 +2,8 @@ $(document).ready(function(){
 	//login()함수 선언
 	function login(){
 		var query = {
-			id:$("#id").val(),
-			passwd:$("#passwd").val()
+			managerCode:$("#id").val(),
+			managerPasswd:$("#passwd").val()
 		};   //query
 		$.ajax({
 			type:"post",

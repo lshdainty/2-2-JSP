@@ -31,7 +31,7 @@ public class EmployeeDBBean {
 	}
 	
 	//특정 직원 조회
-	public JSONArray selectUser(String name){
+	public JSONArray selectUser(String manager_name){
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -41,15 +41,16 @@ public class EmployeeDBBean {
 		try {
 			conn = getConnection();
 				
-			String sql = "select * from manager where managerName = ?";
+			String sql = "select * from manager where manager_name = ?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, name);
+			pstmt.setString(1, manager_name);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				jsonObject = new JSONObject();
-				jsonObject.put("managerId",rs.getInt("managerId"));
-				jsonObject.put("managerName",rs.getString("managerName"));
-				jsonObject.put("managerPasswd",rs.getString("managerPasswd"));
+				jsonObject.put("manager_code",rs.getInt("manager_code"));
+				jsonObject.put("manager_name",rs.getString("manager_name"));
+				jsonObject.put("manager_passwd",rs.getString("manager_passwd"));
+				jsonObject.put("manager_tel",rs.getString("manager_tel"));
 				jsonArray.add(jsonObject);
 			}
 		}catch(Exception e) {
@@ -63,26 +64,30 @@ public class EmployeeDBBean {
 	}
 	
 	//직원 추가
-	public void insertManager(String name, String passwd) {
+	public void insertManager(String manager_name, String manager_passwd, String manager_tel) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
 			conn = getConnection();
 			
-			/*maria db용
-			String sql = "insert into manager(managerName,managerPasswd) values(?,?)";
+			///*maria db용
+			String sql = "insert into manager(manager_name,manager_passwd,manager_tel) values(?,?,?)";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, name);
-			pstmt.setString(2, passwd);
+			pstmt.setString(1, manager_name);
+			pstmt.setString(2, manager_passwd);
+			pstmt.setString(3, manager_tel);
+			pstmt.executeUpdate();
+			//*/
+			
+			/*oracle
+			String sql = "insert into manager values(mid.nextval,?,?,?)";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, manager_name);
+			pstmt.setString(2, manager_passwd);
+			pstmt.setString(3, manager_tel);
 			pstmt.executeUpdate();
 			*/
-			
-			String sql = "insert into manager values(mid.nextval,?,?)";
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, name);
-			pstmt.setString(2, passwd);
-			pstmt.executeUpdate();
 		}catch(Exception e) {
 			System.out.println("오류가 있습니다.");
 		}finally {
@@ -91,6 +96,30 @@ public class EmployeeDBBean {
 			if(conn!=null)try {conn.close();}catch(Exception e) {}
 		}
 	}
+	
+	//직원 수정
+		public void updateEmployee(int manager_code, String manager_name,String manager_passwd,String manager_tel) {
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			try {
+				conn = getConnection();
+					
+				String sql = "update manager set manager_name=?,manager_passwd=?,manager_tel=? where manager_code=?";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, manager_name);
+				pstmt.setString(2, manager_passwd);
+				pstmt.setString(3, manager_tel);
+				pstmt.setInt(4, manager_code);
+				pstmt.executeUpdate();
+			}catch(Exception e) {
+				System.out.println("오류가 있습니다.");
+			}finally {
+				if(rs!=null)try {rs.close();}catch(Exception e) {}
+				if(pstmt!=null)try {pstmt.close();}catch(Exception e) {}
+				if(conn!=null)try {conn.close();}catch(Exception e) {}
+			}
+		}
 	
 	//전체 직원 조회
 	public JSONArray allUser(){
@@ -108,9 +137,10 @@ public class EmployeeDBBean {
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				jsonObject = new JSONObject();
-				jsonObject.put("managerId",rs.getInt("managerId"));
-				jsonObject.put("managerName",rs.getString("managerName"));
-				jsonObject.put("managerPasswd",rs.getString("managerPasswd"));
+				jsonObject.put("manager_code",rs.getInt("manager_code"));
+				jsonObject.put("manager_name",rs.getString("manager_name"));
+				jsonObject.put("manager_passwd",rs.getString("manager_passwd"));
+				jsonObject.put("manager_tel",rs.getString("manager_tel"));
 				jsonArray.add(jsonObject);
 			}
 		}catch(Exception e) {
@@ -124,15 +154,15 @@ public class EmployeeDBBean {
 	}
 	
 	//직원 삭제
-	public void deleteManager(String id) {
+	public void deleteManager(String manager_code) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		int deleteId = Integer.parseInt(id);
+		int deleteId = Integer.parseInt(manager_code);
 		try {
 			conn = getConnection();
 			
-			String sql = "delete from manager where managerId=?";
+			String sql = "delete from manager where manager_code=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, deleteId);
 			pstmt.executeUpdate();

@@ -12,6 +12,22 @@
 	float:left;
 }
 
+#employee_right_top{
+	height : 460px;
+	position: relative;
+}
+
+#employee_right_inner{
+	position:absolute;
+	left:280px;
+ 	bottom: 20px;
+}
+
+#employee_right_bottom{
+	height : 460px;
+	text-align : center;
+}
+
 body{
 	font-size:15px;
 }
@@ -31,4 +47,8 @@ body{
 #list td {
 	border : 1px solid;
 	padding: 20px;
+}
+
+.btn{
+	font-size : 30px;
 }

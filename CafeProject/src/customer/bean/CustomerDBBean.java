@@ -31,7 +31,7 @@ public class CustomerDBBean {
 	}
 	
 	//특정 고객 조회
-	public JSONArray selectUser(String name){
+	public JSONArray selectUser(String customer_tel){
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -41,14 +41,14 @@ public class CustomerDBBean {
 		try {
 			conn = getConnection();
 				
-			String sql = "select * from customer where customerName = ?";
+			String sql = "select * from customer where customer_tel = ?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, name);
+			pstmt.setString(1, customer_tel);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				jsonObject = new JSONObject();
-				jsonObject.put("tel",rs.getString("tel"));
-				jsonObject.put("customerName",rs.getString("customerName"));
+				jsonObject.put("customer_tel",rs.getString("customer_tel"));
+				jsonObject.put("customer_name",rs.getString("customer_name"));
 				jsonObject.put("point",rs.getInt("point"));
 				jsonArray.add(jsonObject);
 			}
@@ -63,7 +63,7 @@ public class CustomerDBBean {
 	}
 	
 	//고객 추가
-	public void insertCustomer(String tel, String name) {
+	public void insertCustomer(String customer_tel, String customer_name) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -72,8 +72,8 @@ public class CustomerDBBean {
 			
 			String sql = "insert into customer values(?,?,0)";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, tel);
-			pstmt.setString(2, name);
+			pstmt.setString(1, customer_tel);
+			pstmt.setString(2, customer_name);
 			pstmt.executeUpdate();
 		}catch(Exception e) {
 			System.out.println("오류가 있습니다.");
@@ -85,18 +85,18 @@ public class CustomerDBBean {
 	}
 	
 	//고객 수정
-	public void updateCustomer(String tel,String newTel,String name) {
+	public void updateCustomer(String customer_tel,String customer_newTel,String customer_name) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
 			conn = getConnection();
 				
-			String sql = "update customer set tel=?,customerName=? where tel=?";
+			String sql = "update customer set customer_tel=?,customer_name=? where customer_tel=?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, newTel);
-			pstmt.setString(2, name);
-			pstmt.setString(3, tel);
+			pstmt.setString(1, customer_newTel);
+			pstmt.setString(2, customer_name);
+			pstmt.setString(3, customer_tel);
 			pstmt.executeUpdate();
 		}catch(Exception e) {
 			System.out.println("오류가 있습니다.");
@@ -123,8 +123,8 @@ public class CustomerDBBean {
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				jsonObject = new JSONObject();
-				jsonObject.put("tel",rs.getString("tel"));
-				jsonObject.put("customerName",rs.getString("customerName"));
+				jsonObject.put("customer_tel",rs.getString("customer_tel"));
+				jsonObject.put("customer_name",rs.getString("customer_name"));
 				jsonObject.put("point",rs.getInt("point"));
 				jsonArray.add(jsonObject);
 			}
@@ -139,16 +139,16 @@ public class CustomerDBBean {
 	}
 	
 	//직원 삭제
-	public void deleteCustomer(String tel) {
+	public void deleteCustomer(String customer_tel) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
 			conn = getConnection();
 			
-			String sql = "delete from customer where tel=?";
+			String sql = "delete from customer where customer_tel=?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, tel);
+			pstmt.setString(1, customer_tel);
 			pstmt.executeUpdate();
 		}catch(Exception e) {
 			System.out.println("오류가 있습니다.");

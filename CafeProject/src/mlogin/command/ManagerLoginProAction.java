@@ -11,17 +11,17 @@ public class ManagerLoginProAction implements CommandAction{
 		request.setCharacterEncoding("utf-8");	//인코딩
 		
 		//넘어온 요청의 데이터를 얻어냄
-		String id = request.getParameter("id");
-		String passwd = request.getParameter("passwd");
+		int manager_code = Integer.parseInt(request.getParameter("managerCode"));
+		String manager_passwd = request.getParameter("managerPasswd");
 		
 		//db와 연동해서 사용자의 인증을 처리
 		MngrDBBean dbPro = MngrDBBean.getInstance();
-		int check = dbPro.userCheck(id, passwd);
-		int authority = dbPro.authorityCheck(id);
+		int check = dbPro.userCheck(manager_code, manager_passwd);
+		int authority = dbPro.authorityCheck(manager_code);
 		
 		//해당 뷰로 보낼 내용을 request 속성에 지정
 		request.setAttribute("check", new Integer(check));
-		request.setAttribute("id", id);
+		request.setAttribute("id", manager_code);
 		request.setAttribute("authority", authority);
 		
 		return "/html/mlogin/mLoginPro.jsp";

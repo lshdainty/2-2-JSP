@@ -3,14 +3,10 @@ package mlogin.bean;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 
 public class MngrDBBean {
 	//싱글톤 
@@ -31,7 +27,7 @@ public class MngrDBBean {
 	}
 	
 	//관리자 인증 메소드
-	public int userCheck(String id, String passwd) {
+	public int userCheck(int manager_code, String manager_passwd) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -39,14 +35,14 @@ public class MngrDBBean {
 		try {
 			conn = getConnection();
 			
-			String sql = "select managerPasswd from manager where managerId=?";
+			String sql = "select manager_passwd from manager where manager_code=?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, id);
+			pstmt.setInt(1, manager_code);
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				String dbpasswd = rs.getString("managerPasswd");
-				if(dbpasswd.equals(passwd)) {
+				String dbpasswd = rs.getString("manager_passwd");
+				if(dbpasswd.equals(manager_passwd)) {
 					x=1;	//로그인 성공
 				}
 				else {
@@ -67,7 +63,7 @@ public class MngrDBBean {
 	}
 	
 	//관리자/직원 구분
-	public int authorityCheck(String id) {
+	public int authorityCheck(int manager_code) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -75,14 +71,14 @@ public class MngrDBBean {
 		try {
 			conn = getConnection();
 			
-			String sql = "select substr(managerId,1,1) from manager where managerId=?";
+			String sql = "select substr(manager_code,1,1) from manager where manager_code=?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, id);
+			pstmt.setInt(1, manager_code);
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				String test = rs.getString("substr(managerId,1,1)");
-				if(test.equals("1")) {
+				int test = rs.getInt("substr(manager_code,1,1)");
+				if(test ==1 ) {
 					num=1;	//관리자 권한
 				}
 				else {
