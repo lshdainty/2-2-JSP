@@ -24,7 +24,13 @@ $(document).ready(function(){
 	});	//customer
 	
 	$("#btnMenu").click(function(){	//메뉴 버튼을 눌렀을때
-		window.location.href="/CafeProject/mg/menuMain.do";
+		$.ajax({
+			type:"post",
+			url:"/CafeProject/mg/menuPro.do",
+			success:function(data){
+				window.location.href="/CafeProject/mg/menuMain.do";
+			}
+		});	//ajax
 	});	//menu
 	
 	$("#btnSales").click(function(){	//매출 버튼을 눌렀을때

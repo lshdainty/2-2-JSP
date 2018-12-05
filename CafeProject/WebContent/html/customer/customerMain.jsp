@@ -20,10 +20,10 @@
 				</tr>
 				<c:forEach var ="c" items = "${sessionScope.clist}">
 				<tr>
-					<td><input class="check" type="radio" name="check" value="${c.customer_name},${c.customer_tel}"></td>
-					<td>${c.customer_name}</td>
-					<td>${c.customer_tel}</td>
-					<td>${c.point}</td>
+					<td class="clist"><input class="check" type="radio" name="check" value="${c.customer_tel}"></td>
+					<td class="clist">${c.customer_name}</td>
+					<td class="clist">${c.customer_tel}</td>
+					<td class="clist">${c.point}</td>
 				</tr>
 				</c:forEach>
 			</table>

@@ -12,6 +12,49 @@
 	float:left;
 }
 
+#menu_right_top{
+	height : 460px;
+	position: relative;
+}
+
+#divImage{
+	position:absolute;
+	left:280px;
+	bottom:120px;
+}
+
+#menu_right_inner{
+	position:absolute;
+	left:280px;
+ 	bottom: 20px;
+}
+
+#menu_right_bottom{
+	height : 460px;
+	text-align : center;
+}
+
 body{
 	font-size:15px;
+}
+
+#list{
+	border-collapse: collapse;
+	text-align : center;
+	width : 100%;
+}
+
+#list th {
+	background-color: #ccc;
+	border : 1px solid;
+	padding: 20px;
+}
+
+#list td {
+	border : 1px solid;
+	padding: 20px;
+}
+
+.btn{
+	font-size : 30px;
 }

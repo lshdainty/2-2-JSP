@@ -1,11 +1,14 @@
 $(document).ready(function(){
 	//체크한 행의 데이터를 가져온다.
 	$(".check").click(function() {
-		$("input[name=check]:checked").each(function() {
-			var test = $(this).val();
-			var result = test.split(",");
-			$("#name").val(result[0]);
-			$("#tel").val(result[1]);
+		$("input[name=check]:checked").change(function() {
+			var test = $(this);
+			var parent = test.parent();
+			var grand = parent.parent();
+			var name = grand.find('> .clist:eq(1)');
+			var tel = grand.find('> .clist:eq(2)');
+			$("#name").val(name.text());
+			$("#tel").val(tel.text());
 		});
 	});
 	
