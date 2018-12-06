@@ -50,7 +50,7 @@ public class MenuAddAction implements CommandAction{
 
 		MenuDBBean dbPro = MenuDBBean.getInstance();
 		dbPro.insertMenu(product_name, product_price, pgroup_code, product_picture);
-		request.setAttribute("mlist",dbPro.allUser());
+		request.setAttribute("mlist",dbPro.allMenu());
 		
 		return "/html/menu/menuSelect.jsp";
 	}

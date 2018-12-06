@@ -18,6 +18,22 @@ $(document).ready(function(){
 		});
 	});
 	
+	$(".group").click(function(){
+		$(".trlist").show();
+		
+		var group_code = $(this).attr("value");
+		
+		if(group_code != "all"){
+			for(var i=0; i<$(".trlist").length; i++){
+				var code = $(".trlist").eq(i).find("> .plist:eq(5)").text();
+				console.log(code);
+				if(group_code!=code){
+					$(".trlist").eq(i).hide();
+				}
+			}
+		}
+	});
+	
 	//이미지를 업로드할때 이미지preview보기
 	function readURL(input){
 		if(input.files&&input.files[0]){

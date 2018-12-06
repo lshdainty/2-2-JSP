@@ -17,7 +17,7 @@ public class MenuDeleteAction implements CommandAction{
 		//db와 연동해서 사용자의 인증을 처리
 		MenuDBBean dbPro = MenuDBBean.getInstance();
 		dbPro.deleteMenu(product_number);
-		request.setAttribute("mlist",dbPro.allUser());
+		request.setAttribute("mlist",dbPro.allMenu());
 		
 		return "/html/menu/menuSelect.jsp";
 	}

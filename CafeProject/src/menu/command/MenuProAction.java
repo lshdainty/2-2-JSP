@@ -15,7 +15,7 @@ public class MenuProAction implements CommandAction{
 		MenuDBBean dbPro = MenuDBBean.getInstance();
 		
 		//해당 뷰로 보낼 내용을 request 속성에 지정
-		request.setAttribute("mlist",dbPro.allUser());
+		request.setAttribute("mlist",dbPro.allMenu());
 		
 		return "/html/menu/menuSelect.jsp";
 	}

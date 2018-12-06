@@ -10,28 +10,19 @@
 	height:920px;
 	border:solid;
 	float:left;
-}
-
-#menu_right_top{
-	height : 460px;
 	position: relative;
 }
 
 #divImage{
 	position:absolute;
 	left:280px;
-	bottom:120px;
+	bottom:560px;
 }
 
 #menu_right_inner{
 	position:absolute;
-	left:280px;
- 	bottom: 20px;
-}
-
-#menu_right_bottom{
-	height : 460px;
-	text-align : center;
+	left:250px;
+ 	bottom: 420px;
 }
 
 body{

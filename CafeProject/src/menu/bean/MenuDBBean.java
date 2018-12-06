@@ -30,7 +30,7 @@ public class MenuDBBean {
 	}
 	
 	//특정 물품 조회
-	public JSONArray selectUser(String product_name){
+	public JSONArray selectMenu(String product_name){
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -124,7 +124,7 @@ public class MenuDBBean {
 	}
 	
 	//전체 제품 조회
-	public JSONArray allUser(){
+	public JSONArray allMenu(){
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;

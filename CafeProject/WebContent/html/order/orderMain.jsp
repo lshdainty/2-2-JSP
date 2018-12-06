@@ -14,11 +14,8 @@
 			<div id="coffee">
 				<button id="btnCoffee">커피</button>
 			</div>
-			<div id="dessert">
-				<button id="btnDessert">디저트</button>
-			</div>
-			<div id="ade">
-				<button id="btnAde">에이드</button>
+			<div id="cake">
+				<button id="btnCake">케이크</button>
 			</div>
 		</div>
 		<div id="order_Bottom">
@@ -69,13 +66,21 @@
 				<div id="order_Bottom_left_Dright">
 					고객 포인트 확인<br/>
 					휴대폰 번호 : <input type="text"/><br/>
-					사용 가능 금액 : <input type="text"/><br/>
+					사용 가능 금액 : <input type="text" id="totalPoint"/><br/>
 					사용 할 금액 : <input type="text"/><br/>
 					<button id="btnPointCk">조회</button>
 					<button id="btnPointUse">사용</button>
 				</div>
 			</div>
-			<div id="order_Bottom_right">상품 목록 이미지 및 버튼?</div>
+			<div id="order_Bottom_right">
+				<c:forEach var ="om" items = "${sessionScope.omlist}">
+				<div class="test">
+					<img src="${om.product_picture}" width="65px" height="65px"><br/>
+					${om.product_name}<br/>
+					${om.product_price}
+				</div>
+				</c:forEach>
+			</div>
 		</div>
 	</body>
 </html>

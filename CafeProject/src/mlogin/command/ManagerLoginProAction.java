@@ -3,6 +3,8 @@ package mlogin.command;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import customer.bean.CustomerDBBean;
+import menu.bean.MenuDBBean;
 import mlogin.bean.MngrDBBean;
 
 public class ManagerLoginProAction implements CommandAction{
@@ -18,6 +20,12 @@ public class ManagerLoginProAction implements CommandAction{
 		MngrDBBean dbPro = MngrDBBean.getInstance();
 		int check = dbPro.userCheck(manager_code, manager_passwd);
 		int authority = dbPro.authorityCheck(manager_code);
+		
+		CustomerDBBean dbCPro = CustomerDBBean.getInstance();
+		MenuDBBean dbMPro = MenuDBBean.getInstance();
+				
+		request.setAttribute("oclist",dbCPro.allUser());
+		request.setAttribute("omlist",dbMPro.allMenu());
 		
 		//해당 뷰로 보낼 내용을 request 속성에 지정
 		request.setAttribute("check", new Integer(check));

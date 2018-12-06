@@ -10,7 +10,13 @@ $(document).ready(function(){
 	});	//logout
 	
 	$("#btnOrder").click(function(){	//주문 버튼을 눌렀을때
-		window.location.href="/CafeProject/mg/orderMain.do";
+		$.ajax({
+			type:"post",
+			url:"/CafeProject/mg/orderPro.do",
+			success:function(data){
+				window.location.href="/CafeProject/mg/orderMain.do";
+			}
+		});	//ajax
 	});	//order
 	
 	$("#btnCustomer").click(function(){	//고객 버튼을 눌렀을때

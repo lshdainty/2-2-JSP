@@ -23,6 +23,10 @@
 	float: right;
 }
 
+.test{
+	text-align:center;
+}
+
 #order_Bottom_left_top {
 	width: 816px;
 	height: 553px;
