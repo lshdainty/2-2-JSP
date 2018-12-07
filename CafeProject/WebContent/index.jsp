@@ -41,12 +41,8 @@
 					<button id="logout">로그아웃</button>
 				</div>
 				<div id="left_side">
-					<div id="order">
-						<button id="btnOrder">주문</button>
-					</div>
-					<div id="customer">
-					<button id="btnCustomer">고객</button>
-					</div>
+					<button id="btnOrder" class="button">주문</button>
+					<button id="btnCustomer" class="button">고객</button>
 				</div>
 				<div id="main">
 					<jsp:include page="${cont}"/>

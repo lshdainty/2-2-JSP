@@ -17,8 +17,8 @@ public class OrderProAction implements CommandAction{
 		MenuDBBean dbMPro = MenuDBBean.getInstance();
 		
 		//해당 뷰로 보낼 내용을 request 속성에 지정
-		request.setAttribute("oclist",dbCPro.allUser());
-		request.setAttribute("omlist",dbMPro.allMenu());
+		request.setAttribute("clist",dbCPro.allUser());
+		request.setAttribute("mlist",dbMPro.allMenu());
 		
 		return "/html/order/orderSelect.jsp";
 	}

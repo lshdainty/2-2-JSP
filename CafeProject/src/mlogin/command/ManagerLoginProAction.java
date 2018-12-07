@@ -24,8 +24,8 @@ public class ManagerLoginProAction implements CommandAction{
 		CustomerDBBean dbCPro = CustomerDBBean.getInstance();
 		MenuDBBean dbMPro = MenuDBBean.getInstance();
 				
-		request.setAttribute("oclist",dbCPro.allUser());
-		request.setAttribute("omlist",dbMPro.allMenu());
+		request.setAttribute("clist",dbCPro.allUser());
+		request.setAttribute("mlist",dbMPro.allMenu());
 		
 		//해당 뷰로 보낼 내용을 request 속성에 지정
 		request.setAttribute("check", new Integer(check));

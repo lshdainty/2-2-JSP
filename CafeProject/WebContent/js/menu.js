@@ -18,6 +18,7 @@ $(document).ready(function(){
 		});
 	});
 	
+	//그룹 선택
 	$(".group").click(function(){
 		$(".trlist").show();
 		
@@ -26,7 +27,6 @@ $(document).ready(function(){
 		if(group_code != "all"){
 			for(var i=0; i<$(".trlist").length; i++){
 				var code = $(".trlist").eq(i).find("> .plist:eq(5)").text();
-				console.log(code);
 				if(group_code!=code){
 					$(".trlist").eq(i).hide();
 				}

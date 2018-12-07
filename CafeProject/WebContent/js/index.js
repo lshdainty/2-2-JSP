@@ -40,7 +40,13 @@ $(document).ready(function(){
 	});	//menu
 	
 	$("#btnSales").click(function(){	//매출 버튼을 눌렀을때
-		window.location.href="/CafeProject/mg/salesMain.do";
+		$.ajax({
+			type:"post",
+			url:"/CafeProject/mg/salesPro.do",
+			success:function(data){
+				window.location.href="/CafeProject/mg/salesMain.do";
+			}
+		});	//ajax
 	});	//sales
 	
 	$("#btnEmployee").click(function(){	//직원 버튼을 눌렀을때

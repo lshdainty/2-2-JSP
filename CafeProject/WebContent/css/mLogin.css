@@ -1,0 +1,34 @@
+#loginBox {
+	text-align: center;
+}
+
+p {
+	font-size: 30px;
+}
+
+#id, #passwd{
+	height:30px;
+	font-size: 30px;
+}
+
+#login {
+	margin: auto;
+	background-color: white;
+	color: black;
+	font-size: 40px;
+	border: 1px solid #555555;
+	width: 15%;
+	height: 100px;
+	display: block;
+	-webkit-transition-duration: 0.4s; /* Safari */
+	transition-duration: 0.4s;
+}
+
+#login:hover {
+	background-color: #555555;
+	color: white;
+}
+
+#logImg{
+	margin-bottom:-90px;
+}
