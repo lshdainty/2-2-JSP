@@ -2,6 +2,14 @@
 	text-align:right;
 }
 
+#pay{
+	margin-top:20px;
+}
+
+#point{
+	margin-top:20px;
+}
+
 ul {
   font-size: 0;
   position: relative;
@@ -14,12 +22,12 @@ ul {
 li {
   display: inline-block;
   width: 370px;
-  height: 60px;
-  background: #dcdcd1;
+  height: 50px;
+  background: #282828;
   font-size: 16px;
   text-align: center;
-  line-height: 60px;
-  color: #000;
+  line-height: 50px;
+  color: #eeeeee;
   text-transform: uppercase;
   position: relative;
   overflow: hidden;
@@ -82,38 +90,35 @@ rippleDrop {  100% {
 
 #table{
 	display:inline-block;
+	box-shadow: 5px 5px 3px 1px #9C9C9C;
 }
 
 table.list {
 	border-collapse: collapse;
 	text-align: left;
 	line-height: 1.5;
-	border-left: 1px solid #000;
-	margin: 20px 10px;
 }
 
 table.list thead th {
 	padding: 10px;
 	font-weight: bold;
-	border-top: 1px solid #000;
-	border-right: 1px solid #000;
-	border-bottom: 2px solid #c00;
-	background: #dcdcd1;
+	color:#eeeeee;
+	border-right:1px solid #000;
+	border-bottom: 3px solid #c84646;
+	background: #282828;
 }
+
 table.list tbody th {
 	width: 350px;
 	padding: 10px;
 	font-weight: bold;
 	vertical-align: top;
-	border-right: 1px solid #000;
-	border-bottom: 1px solid #000;
 	background: #ffffff;
 }
+
 table.list td {
 	width: 350px;
 	padding: 10px;
 	vertical-align: top;
 	background: #ffffff;
-	border-right: 1px solid #000;
-	border-bottom: 1px solid #000;
 }

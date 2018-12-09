@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import customer.bean.CustomerDBBean;
 import menu.bean.MenuDBBean;
 import mlogin.bean.MngrDBBean;
+import order.bean.OrderDBBean;
 
 public class ManagerLoginProAction implements CommandAction{
 	@Override
@@ -23,9 +24,12 @@ public class ManagerLoginProAction implements CommandAction{
 		
 		CustomerDBBean dbCPro = CustomerDBBean.getInstance();
 		MenuDBBean dbMPro = MenuDBBean.getInstance();
+		OrderDBBean dbOPro = OrderDBBean.getInstance();
 				
 		request.setAttribute("clist",dbCPro.allUser());
 		request.setAttribute("mlist",dbMPro.allMenu());
+		request.setAttribute("standard", dbOPro.selectStandard());
+		request.setAttribute("save", dbOPro.selectSave());
 		
 		//해당 뷰로 보낼 내용을 request 속성에 지정
 		request.setAttribute("check", new Integer(check));

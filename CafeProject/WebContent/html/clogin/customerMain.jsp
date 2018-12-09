@@ -18,7 +18,7 @@
 	<div id="cmenu">
 		<ul class="menu">
 			<li class="click">결제 내역보기</li>
-			<li class="click">포인트 적립 내역보기</li>
+			<li class="click">포인트 적립/사용 내역보기</li>
 			<li class="slider"></li>
 		</ul>
 	</div>

@@ -38,6 +38,7 @@ public class OrderResultAction implements CommandAction{
 		int point = Integer.parseInt(request.getParameter("point"));	//고객이 보유한 포인트
 		String usepoint = request.getParameter("sprice");	//고객이 사용한 포인트
 		String addpoint = "";
+		double save = Double.parseDouble(request.getParameter("save"))/100;
 	
 //*******************************************************************************
 		
@@ -45,9 +46,9 @@ public class OrderResultAction implements CommandAction{
 		OrderDBBean dbPro = OrderDBBean.getInstance();
 		dbPro.insertPurchase(purchase_code, customer_tel, purchase_price);
 		if((customer_tel!=null)&&(customer_tel!="")) {	//휴대폰 번호가 null값이 아니면 회원이므로 포인트를 적립한다.
-			addpoint = "+" + (int)(purchase_price * 0.1);
+			addpoint = "+" + (int)(purchase_price * save);
 			dbPro.insertPoint_log(customer_tel, purchase_code, addpoint);	//사용자에게 들어온 포인트 내역 기록
-			dbPro.updatePoint(point+(int)(purchase_price * 0.1)-Integer.parseInt(usepoint), customer_tel);	//사용자에게 적립된 포인트 업데이트
+			dbPro.updatePoint(point+(int)(purchase_price * save)-Integer.parseInt(usepoint), customer_tel);	//사용자에게 적립된 포인트 업데이트
 		}
 		if(!usepoint.equals("0")&&!usepoint.equals("")) {	//사용 포인트가 0이 아니면 포인트를 사용한것이므로 기록한다.
 			usepoint = "-" + usepoint;
@@ -57,6 +58,8 @@ public class OrderResultAction implements CommandAction{
 		MenuDBBean dbMPro = MenuDBBean.getInstance();
 		request.setAttribute("clist",dbCPro.allUser());
 		request.setAttribute("mlist",dbMPro.allMenu());
+		request.setAttribute("standard",dbPro.selectStandard());
+		request.setAttribute("save",dbPro.selectSave());
 		
 		return "/html/order/orderSelect.jsp";
 	}

@@ -20,6 +20,15 @@
 						}
 					}
 				});
+				var original = ${sessionScope.id};
+				var id = String(original).substring(0,1);
+				if(id==1){
+					$("#btnChangePoint").css("display","inline");
+					$("#btnChangeSave").css("display","inline");
+				}else{
+					$("#btnChangePoint").css("display","none");
+					$("#btnChangeSave").css("display","none");
+				}
 			});
 		</script>
 		<link rel="stylesheet" href="/CafeProject/css/order.css">
@@ -80,8 +89,12 @@
 					<div>고객 정보 확인</div>
 					<br/>
 					<div id="divUse">
-						<label for="use">포인트 사용 가능 금액 : </label>
-						<input id="use" type="text" value="5000" readonly>
+						<label for="use">포인트 사용 기준 금액 : </label>
+						<input id="use" type="text" value="${standard }" readonly>
+					</div>
+					<div id="divSave">
+						<label for="save">포인트 적립 % : </label>
+						<input id="save" type="text" value="${save }" readonly>
 					</div>
 					<div id="divTel">
 						<label for="tel">휴대폰 번호 : </label>
@@ -97,7 +110,8 @@
 					</div>
 					<button id="btnPointCk">조회</button>
 					<button id="btnPointUse">사용</button>
-					<button id="btnChangePoint">포인트 사용 가능금액 변경</button>
+					<button id="btnChangePoint" style="display:none;">포인트 사용 기준 변경</button>
+					<button id="btnChangeSave" style="display:none;">포인트 적립 % 변경</button>
 				</div>
 			</div>
 			<div id="order_Bottom_right">

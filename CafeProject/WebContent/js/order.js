@@ -85,10 +85,40 @@ $(document).ready(function(){
 		totalprice();
 	});
 	
-	//포인트 사용 가능금액 변경
+	//포인트 사용 기준금액 변경
 	$("#btnChangePoint").click(function(){
-		var possible = prompt("변경할 포인트 사용 가능 금액을 입력해주세요.","");
-		$("#use").val(possible);
+		var possible = prompt("변경할 포인트 사용 기준 금액을 입력해주세요.","");
+		if(possible==null||possible==""){alert("숫자를 입력해주세요");}
+		else if(isNaN(possible)){alert("숫자를 입력해주세요");}
+		else{
+			var query = {standard:possible};	//query
+			$.ajax({
+				type:"post",
+				url:"/CafeProject/mg/orderStandard.do",
+				data:query,
+				success:function(data){
+					window.location.href="/CafeProject/mg/orderMain.do"
+				}	//success
+			});	//ajax
+		}
+	});
+	
+	//포인트 적립 % 변경
+	$("#btnChangeSave").click(function(){
+		var possible_percent = prompt("변경할 포인트 적립 %를 입력해주세요.(%제외)","");
+		if(possible_percent==null||possible_percent==""){alert("숫자를 입력해주세요");}
+		else if(isNaN(possible_percent)){alert("숫자를 입력해주세요");}
+		else{
+			var query = {save:possible_percent};	//query
+			$.ajax({
+				type:"post",
+				url:"/CafeProject/mg/orderSave.do",
+				data:query,
+				success:function(data){
+					window.location.href="/CafeProject/mg/orderMain.do"
+				}	//success
+			});	//ajax
+		}
 	});
 	
 	//결제버튼 클릭
@@ -99,12 +129,13 @@ $(document).ready(function(){
 			alert("돈을 더 내셔야합니다.");
 		}
 		else{
-			var change = gprice - rprice;
+			var change = gprice - rprice;	//잔돈표시
 			var query = {
 					purchase_price:$("#rprice").val(),
 					customer_tel:$("#tel").val(),
 					point:$("#point").val(),
-					sprice:$("#sprice").val()
+					sprice:$("#sprice").val(),
+					save:$("#save").val()
 			};	//query
 			$.ajax({
 				type:"post",

@@ -8,21 +8,22 @@ import menu.bean.MenuDBBean;
 import mlogin.command.CommandAction;
 import order.bean.OrderDBBean;
 
-public class OrderProAction implements CommandAction{
+public class OrderStandardAction implements CommandAction{
 	@Override
 	public String requestPro(HttpServletRequest request,HttpServletResponse response) throws Throwable{
 		request.setCharacterEncoding("utf-8");	//인코딩
 		
-		//db와 연동해서 사용자의 인증을 처리
-		CustomerDBBean dbCPro = CustomerDBBean.getInstance();
-		MenuDBBean dbMPro = MenuDBBean.getInstance();
-		OrderDBBean dbPro = OrderDBBean.getInstance();
+		String standard = request.getParameter("standard");	//포인트 사용 가능 기준
 		
+		//db와 연동해서 사용자의 인증을 처리
+		OrderDBBean dbPro = OrderDBBean.getInstance();
+		int dbStandard = dbPro.selectStandard();
+		if(standard!=null||standard!="") {
+			dbPro.updateStandard(Integer.parseInt(standard), dbStandard);
+		}
+
 		//해당 뷰로 보낼 내용을 request 속성에 지정
-		request.setAttribute("clist",dbCPro.allUser());
-		request.setAttribute("mlist",dbMPro.allMenu());
-		request.setAttribute("standard", dbPro.selectStandard());
-		request.setAttribute("save", dbPro.selectSave());
+		request.setAttribute("standard",dbPro.selectStandard());		
 		
 		return "/html/order/orderSelect.jsp";
 	}
