@@ -73,7 +73,6 @@ $(document).ready(function(){
 						url:"/CafeProject/mg/customerAdd.do",
 						data:query,
 						success:function(data){
-							alert("추가하였습니다.");
 							window.location.href="/CafeProject/mg/customerMain.do"
 						}	//success
 					});	//ajax

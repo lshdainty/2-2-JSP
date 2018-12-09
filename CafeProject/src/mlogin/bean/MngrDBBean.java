@@ -53,7 +53,7 @@ public class MngrDBBean {
 				x=-1;	//아이디 없음
 			}
 		}catch(Exception e) {
-			System.out.println("오류가 있습니다.");
+			System.out.println("관리자 인증에 오류가 있습니다.");
 		}finally {
 			if(rs!=null)try {rs.close();}catch(Exception e) {}
 			if(pstmt!=null)try {pstmt.close();}catch(Exception e) {}
@@ -87,7 +87,7 @@ public class MngrDBBean {
 			}
 
 		}catch(Exception e) {
-			System.out.println("오류가 있습니다.");
+			System.out.println("관리자/직원 구분에 오류가 있습니다.");
 		}finally {
 			if(rs!=null)try {rs.close();}catch(Exception e) {}
 			if(pstmt!=null)try {pstmt.close();}catch(Exception e) {}

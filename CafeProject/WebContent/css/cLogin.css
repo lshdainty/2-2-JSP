@@ -1,0 +1,50 @@
+#cloginBox {
+	text-align: center;
+}
+
+p {
+	font-size: 30px;
+}
+
+#name, #tel{
+	height:30px;
+	font-size: 30px;
+}
+
+#login {
+	margin: auto;
+	background-color: white;
+	color: black;
+	font-size: 30px;
+	border: 1px solid #555555;
+	width: 250px;
+	height: 100px;
+	-webkit-transition-duration: 0.4s; /* Safari */
+	transition-duration: 0.4s;
+}
+
+#member {
+	margin: auto;
+	background-color: white;
+	color: black;
+	font-size: 30px;
+	border: 1px solid #555555;
+	width: 250px;
+	height: 100px;
+	-webkit-transition-duration: 0.4s; /* Safari */
+	transition-duration: 0.4s;
+}
+
+#login:hover {
+	background-color: #555555;
+	color: white;
+}
+
+#member:hover {
+	background-color: #555555;
+	color: white;
+}
+
+#clogImg{
+	margin-bottom:-90px;
+}

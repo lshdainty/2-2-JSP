@@ -54,7 +54,7 @@ public class EmployeeDBBean {
 				jsonArray.add(jsonObject);
 			}
 		}catch(Exception e) {
-			System.out.println("오류가 있습니다.");
+			System.out.println("특정 직원 조회에 오류가 있습니다.");
 		}finally {
 			if(rs!=null)try {rs.close();}catch(Exception e) {}
 			if(pstmt!=null)try {pstmt.close();}catch(Exception e) {}
@@ -71,25 +71,14 @@ public class EmployeeDBBean {
 		try {
 			conn = getConnection();
 			
-			///*maria db용
 			String sql = "insert into manager(manager_name,manager_passwd,manager_tel) values(?,?,?)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, manager_name);
 			pstmt.setString(2, manager_passwd);
 			pstmt.setString(3, manager_tel);
 			pstmt.executeUpdate();
-			//*/
-			
-			/*oracle
-			String sql = "insert into manager values(mid.nextval,?,?,?)";
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, manager_name);
-			pstmt.setString(2, manager_passwd);
-			pstmt.setString(3, manager_tel);
-			pstmt.executeUpdate();
-			*/
 		}catch(Exception e) {
-			System.out.println("오류가 있습니다.");
+			System.out.println("직원 추가에 오류가 있습니다.");
 		}finally {
 			if(rs!=null)try {rs.close();}catch(Exception e) {}
 			if(pstmt!=null)try {pstmt.close();}catch(Exception e) {}
@@ -113,7 +102,7 @@ public class EmployeeDBBean {
 				pstmt.setInt(4, manager_code);
 				pstmt.executeUpdate();
 			}catch(Exception e) {
-				System.out.println("오류가 있습니다.");
+				System.out.println("직원 수정에 오류가 있습니다.");
 			}finally {
 				if(rs!=null)try {rs.close();}catch(Exception e) {}
 				if(pstmt!=null)try {pstmt.close();}catch(Exception e) {}
@@ -132,7 +121,7 @@ public class EmployeeDBBean {
 		try {
 			conn = getConnection();
 			
-			String sql = "select * from manager";
+			String sql = "select * from manager where substring(manager_code,'1','1')='2'";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
@@ -144,7 +133,7 @@ public class EmployeeDBBean {
 				jsonArray.add(jsonObject);
 			}
 		}catch(Exception e) {
-			System.out.println("오류가 있습니다.");
+			System.out.println("전체 직원 조회에 오류가 있습니다.");
 		}finally {
 			if(rs!=null)try {rs.close();}catch(Exception e) {}
 			if(pstmt!=null)try {pstmt.close();}catch(Exception e) {}
@@ -167,7 +156,7 @@ public class EmployeeDBBean {
 			pstmt.setInt(1, deleteId);
 			pstmt.executeUpdate();
 		}catch(Exception e) {
-			System.out.println("오류가 있습니다.");
+			System.out.println("직원 삭제에 오류가 있습니다.");
 		}finally {
 			if(rs!=null)try {rs.close();}catch(Exception e) {}
 			if(pstmt!=null)try {pstmt.close();}catch(Exception e) {}

@@ -8,6 +8,19 @@
 		<script src="/CafeProject/js/jquery-3.3.1.min.js"></script>
 		<script src="/CafeProject/js/customer.js"></script>
 		<link rel="stylesheet" href="/CafeProject/css/customer.css">
+		<script>
+			var test = ${mMemberCheck};
+			if(test==1||test==2){
+				if(test==1){
+					alert("동일한 휴대폰 번호가 있습니다.");
+					<%session.removeAttribute("mMemberCheck");%>
+				}
+				else if(test==2){
+					alert("회원가입 완료");
+					<%session.removeAttribute("mMemberCheck");%>
+				}
+			}
+		</script>
 	</head>
 	<body>
 		<div id="customer_left">

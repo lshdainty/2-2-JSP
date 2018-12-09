@@ -1,0 +1,38 @@
+h1 {
+	color: black;
+	
+}
+
+/* 차트 부분 */
+#lineChart {
+	height:500px;
+	width:100%;
+	font-size: 20px;
+}
+
+#chartArea{
+	text-align: center;
+}
+
+#chartArea > h1 {
+	font-size: 80px;
+}
+
+/* 연도 입력 부분 */
+
+#yearSelect{
+	text-align: center;
+}
+
+#Select{
+	text-align: center;
+}
+
+.btnSales{
+	font-size: 30px;
+}
+
+#year{
+	width:5%;
+	font-size: 35px;
+}

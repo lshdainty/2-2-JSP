@@ -93,7 +93,7 @@
 					</div>
 					<div id="divUPoint">
 						<label for="upoint">사용 할 금액 : </label>
-						<input id="upoint" type="text" value="0" maxlength="6">
+						<input id="upoint" type="text" placeholder="0" maxlength="6">
 					</div>
 					<button id="btnPointCk">조회</button>
 					<button id="btnPointUse">사용</button>

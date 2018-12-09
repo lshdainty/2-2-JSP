@@ -50,7 +50,7 @@ public class OrderDBBean {
 				pstmt.executeQuery();
 			}
 		}catch(Exception e) {
-			System.out.println("오류가 있습니다.");
+			System.out.println("결제 입력에 오류가 있습니다.");
 		}finally {
 			if(rs!=null)try {rs.close();}catch(Exception e) {}
 			if(pstmt!=null)try {pstmt.close();}catch(Exception e) {}
@@ -72,7 +72,7 @@ public class OrderDBBean {
 			pstmt.setString(3, sprice);
 			rs = pstmt.executeQuery();
 		}catch(Exception e) {
-			System.out.println("point오류가 있습니다.");
+			System.out.println("point입력에 오류가 있습니다.");
 		}finally {
 			if(rs!=null)try {rs.close();}catch(Exception e) {}
 			if(pstmt!=null)try {pstmt.close();}catch(Exception e) {}
@@ -93,7 +93,7 @@ public class OrderDBBean {
 			pstmt.setString(2, customer_tel);
 			rs = pstmt.executeQuery();
 		}catch(Exception e) {
-			System.out.println("point오류가 있습니다.");
+			System.out.println("point 수정에 오류가 있습니다.");
 		}finally {
 			if(rs!=null)try {rs.close();}catch(Exception e) {}
 			if(pstmt!=null)try {pstmt.close();}catch(Exception e) {}

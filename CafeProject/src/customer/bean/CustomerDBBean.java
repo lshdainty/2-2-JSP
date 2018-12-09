@@ -53,7 +53,7 @@ public class CustomerDBBean {
 				jsonArray.add(jsonObject);
 			}
 		}catch(Exception e) {
-			System.out.println("오류가 있습니다.");
+			System.out.println("특정 고객 조회에 문제가 있습니다.");
 		}finally {
 			if(rs!=null)try {rs.close();}catch(Exception e) {}
 			if(pstmt!=null)try {pstmt.close();}catch(Exception e) {}
@@ -63,25 +63,37 @@ public class CustomerDBBean {
 	}
 	
 	//고객 추가
-	public void insertCustomer(String customer_tel, String customer_name) {
+	public int insertCustomer(String customer_tel, String customer_name) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		int x = 1;
 		try {
 			conn = getConnection();
 			
-			String sql = "insert into customer values(?,?,0)";
+			String sql = "select * from customer where customer_tel=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, customer_tel);
-			pstmt.setString(2, customer_name);
-			pstmt.executeUpdate();
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				x=1;	//아이디가 존재하여 가입 불가
+			}
+			else {
+				String sql1 = "insert into customer values(?,?,0)";
+				pstmt = conn.prepareStatement(sql1);
+				pstmt.setString(1, customer_tel);
+				pstmt.setString(2, customer_name);
+				pstmt.executeUpdate();
+				x=2;
+			}
 		}catch(Exception e) {
-			System.out.println("오류가 있습니다.");
+			System.out.println("고객 추가에 문제가 있습니다.");
 		}finally {
 			if(rs!=null)try {rs.close();}catch(Exception e) {}
 			if(pstmt!=null)try {pstmt.close();}catch(Exception e) {}
 			if(conn!=null)try {conn.close();}catch(Exception e) {}
 		}
+		return x;
 	}
 	
 	//고객 수정
@@ -99,7 +111,7 @@ public class CustomerDBBean {
 			pstmt.setString(3, customer_tel);
 			pstmt.executeUpdate();
 		}catch(Exception e) {
-			System.out.println("오류가 있습니다.");
+			System.out.println("고객 수정에 문제가 있습니다.");
 		}finally {
 			if(rs!=null)try {rs.close();}catch(Exception e) {}
 			if(pstmt!=null)try {pstmt.close();}catch(Exception e) {}
@@ -129,7 +141,7 @@ public class CustomerDBBean {
 				jsonArray.add(jsonObject);
 			}
 		}catch(Exception e) {
-			System.out.println("오류가 있습니다.");
+			System.out.println("전체 고객 조회에 문제가 있습니다.");
 		}finally {
 			if(rs!=null)try {rs.close();}catch(Exception e) {}
 			if(pstmt!=null)try {pstmt.close();}catch(Exception e) {}
@@ -138,7 +150,7 @@ public class CustomerDBBean {
 		return jsonArray;
 	}
 	
-	//직원 삭제
+	//고객 삭제
 	public void deleteCustomer(String customer_tel) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -151,7 +163,7 @@ public class CustomerDBBean {
 			pstmt.setString(1, customer_tel);
 			pstmt.executeUpdate();
 		}catch(Exception e) {
-			System.out.println("오류가 있습니다.");
+			System.out.println("고객 삭제에 문제가 있습니다.");
 		}finally {
 			if(rs!=null)try {rs.close();}catch(Exception e) {}
 			if(pstmt!=null)try {pstmt.close();}catch(Exception e) {}

@@ -27,7 +27,7 @@ public class OrderResultAction implements CommandAction{
 		Date currentTime = new Date ();
 		String mTime = mSimpleDateFormat.format (currentTime);
 		String purchase_code = mTime + code;	//주문코드 생성
-		while(purchase_code.length()>=13) {
+		while(purchase_code.length()<13) {
 			purchase_code = purchase_code + "0";
 		}
 
@@ -47,13 +47,11 @@ public class OrderResultAction implements CommandAction{
 		if((customer_tel!=null)&&(customer_tel!="")) {	//휴대폰 번호가 null값이 아니면 회원이므로 포인트를 적립한다.
 			addpoint = "+" + (int)(purchase_price * 0.1);
 			dbPro.insertPoint_log(customer_tel, purchase_code, addpoint);	//사용자에게 들어온 포인트 내역 기록
-			dbPro.updatePoint(point+(int)(purchase_price * 0.1), customer_tel);	//사용자에게 적립된 포인트 업데이트
-			System.out.println(point+(int)(purchase_price * 0.1));
+			dbPro.updatePoint(point+(int)(purchase_price * 0.1)-Integer.parseInt(usepoint), customer_tel);	//사용자에게 적립된 포인트 업데이트
 		}
 		if(!usepoint.equals("0")&&!usepoint.equals("")) {	//사용 포인트가 0이 아니면 포인트를 사용한것이므로 기록한다.
 			usepoint = "-" + usepoint;
 			dbPro.insertPoint_log(customer_tel,purchase_code,usepoint);	//사용자가 사용한 포인트 내역 기록
-			dbPro.updatePoint(point-Integer.parseInt(usepoint), customer_tel);	//고객 포인트 업데이트
 		}
 		CustomerDBBean dbCPro = CustomerDBBean.getInstance();
 		MenuDBBean dbMPro = MenuDBBean.getInstance();

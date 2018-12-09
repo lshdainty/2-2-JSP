@@ -54,7 +54,7 @@ public class MenuDBBean {
 				jsonArray.add(jsonObject);
 			}
 		}catch(Exception e) {
-			System.out.println("오류가 있습니다.");
+			System.out.println("특정 물품 조회에 오류가 있습니다.");
 		}finally {
 			if(rs!=null)try {rs.close();}catch(Exception e) {}
 			if(pstmt!=null)try {pstmt.close();}catch(Exception e) {}
@@ -71,7 +71,7 @@ public class MenuDBBean {
 		try {
 			conn = getConnection();
 			
-			///*maria db용
+
 			String sql = "insert into product(product_name,product_price,pgroup_code,product_picture) values(?,?,?,?)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, product_name);
@@ -79,18 +79,8 @@ public class MenuDBBean {
 			pstmt.setString(3, pgroup_code);
 			pstmt.setString(4, product_picture);
 			pstmt.executeUpdate();
-			//*/
-			
-			/*oracle
-			String sql = "insert into manager values(mid.nextval,?,?,?)";
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, manager_name);
-			pstmt.setString(2, manager_passwd);
-			pstmt.setString(3, manager_tel);
-			pstmt.executeUpdate();
-			*/
 		}catch(Exception e) {
-			System.out.println("오류가 있습니다.");
+			System.out.println("제품 추가에 오류가 있습니다.");
 		}finally {
 			if(rs!=null)try {rs.close();}catch(Exception e) {}
 			if(pstmt!=null)try {pstmt.close();}catch(Exception e) {}
@@ -115,7 +105,7 @@ public class MenuDBBean {
 			pstmt.setInt(5, product_number);
 			pstmt.executeUpdate();
 		}catch(Exception e) {
-			System.out.println("오류가 있습니다.");
+			System.out.println("제품 수정에 오류가 있습니다.");
 		}finally {
 			if(rs!=null)try {rs.close();}catch(Exception e) {}
 			if(pstmt!=null)try {pstmt.close();}catch(Exception e) {}
@@ -147,7 +137,7 @@ public class MenuDBBean {
 				jsonArray.add(jsonObject);
 			}
 		}catch(Exception e) {
-			System.out.println("오류가 있습니다.");
+			System.out.println("전체 제품 조회에 오류가 있습니다.");
 		}finally {
 			if(rs!=null)try {rs.close();}catch(Exception e) {}
 			if(pstmt!=null)try {pstmt.close();}catch(Exception e) {}
@@ -169,7 +159,7 @@ public class MenuDBBean {
 			pstmt.setInt(1, product_number);
 			pstmt.executeUpdate();
 		}catch(Exception e) {
-			System.out.println("오류가 있습니다.");
+			System.out.println("제품 삭제에 오류가 있습니다.");
 		}finally {
 			if(rs!=null)try {rs.close();}catch(Exception e) {}
 			if(pstmt!=null)try {pstmt.close();}catch(Exception e) {}
