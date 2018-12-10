@@ -3,6 +3,7 @@
 	height:920px;
 	border:solid;
 	float:left;
+	overflow:auto;
 }
 
 #customer_right{

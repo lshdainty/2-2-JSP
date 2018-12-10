@@ -3,6 +3,7 @@
 	height:920px;
 	border:solid;
 	float:left;
+	overflow:auto; /** div에 overflow 속성을 사용하여 테이블에 스크롤바 생성**/
 }
 
 #menu_right{
@@ -48,4 +49,8 @@ body{
 
 .btn{
 	font-size : 30px;
+}
+
+.group{
+	font-size : 40px;
 }
